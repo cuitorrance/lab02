@@ -100,11 +100,21 @@ std::string Roster::toString() const {
 
 void Roster::sortByPerm() {
   // SELECTION SORT
-  // stub does nothing
+  sortByPermHelper(this->numStudents);
 }
 
 int Roster::indexOfMaxPermAmongFirstKStudents(int k) const {
-  return 0; // STUB
+  int max = (*this->students[0]).getPerm();
+  int maxIndex = 0;
+  for ( int i = 1; i < k;i++)
+    {
+      if( (*this->students[i]).getPerm() > max)
+	{
+	  max = (*this->students[i]).getPerm();
+	  maxIndex = i;
+	}
+    }
+  return maxIndex;
 }
 
 void Roster::sortByPermHelper(int k) {
