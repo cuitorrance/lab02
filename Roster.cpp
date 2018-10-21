@@ -99,8 +99,10 @@ std::string Roster::toString() const {
 }
 
 void Roster::sortByPerm() {
-  // SELECTION SORT
-  sortByPermHelper(this->numStudents);
+  for ( int i = this->numStudents; i > 0; i--)
+    {
+      sortByPermHelper(i);
+    }
 }
 
 int Roster::indexOfMaxPermAmongFirstKStudents(int k) const {
@@ -123,8 +125,13 @@ void Roster::sortByPermHelper(int k) {
 
   int im = indexOfMaxPermAmongFirstKStudents(k);
 
-  // now swap the pointers between index im and index k-1
+  Student* temp = this->students[k-1];
 
-  // THIS IS STILL A STUB !!!
+  this->students[k-1] = this->students[im];
+
+  this->students[im] = temp;
+  
+
+  // now swap the pointers between index im and index k-1
   
 }
